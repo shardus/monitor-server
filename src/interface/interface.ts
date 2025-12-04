@@ -149,7 +149,7 @@ type MonitorEventCountedInstanceData = {
 }
 
 export type NodeInfoAppData = {
-  shardeumVersion: string;
+  liberdusVersion: string;
   minVersion: string;
   activeVersion: string;
   latestVersion: string;

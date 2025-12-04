@@ -933,31 +933,31 @@ export class Node {
         continue;
       }
 
-      if (aggregatedAppVersion.has(appData.shardeumVersion)) {
+      if (aggregatedAppVersion.has(appData.liberdusVersion)) {
         // Increment the CLI version count that this node is using
         aggregatedAppVersion
-          .get(appData.shardeumVersion)
+          .get(appData.liberdusVersion)
           .cliVersions.set(
             appData.operatorCLIVersion,
             (aggregatedAppVersion
-              .get(appData.shardeumVersion)
+              .get(appData.liberdusVersion)
               .cliVersions.get(appData.operatorCLIVersion)) + 1
           );
 
         // Increment the GUI version count that this node is using
         aggregatedAppVersion
-          .get(appData.shardeumVersion)
+          .get(appData.liberdusVersion)
           .guiVersions.set(
             appData.operatorGUIVersion,
             (aggregatedAppVersion
-              .get(appData.shardeumVersion)
+              .get(appData.liberdusVersion)
               .guiVersions.get(appData.operatorGUIVersion)) + 1
           );
 
         // Increment the total node count for this version
-        aggregatedAppVersion.get(appData.shardeumVersion).activeNodeCount += 1;
+        aggregatedAppVersion.get(appData.liberdusVersion).activeNodeCount += 1;
       } else {
-        aggregatedAppVersion.set(appData.shardeumVersion, {
+        aggregatedAppVersion.set(appData.liberdusVersion, {
           activeNodeCount: 1,
           cliVersions: new Map<string, number>([
             [appData.operatorCLIVersion, 1],
@@ -980,32 +980,32 @@ export class Node {
         continue;
       }
 
-      if (aggregatedAppVersion.has(appData.shardeumVersion)) {
+      if (aggregatedAppVersion.has(appData.liberdusVersion)) {
         // Increment the total node count for this version
-        aggregatedAppVersion.get(appData.shardeumVersion).joiningNodeCount = (aggregatedAppVersion.get(appData.shardeumVersion).joiningNodeCount || 0) + 1;
+        aggregatedAppVersion.get(appData.liberdusVersion).joiningNodeCount = (aggregatedAppVersion.get(appData.liberdusVersion).joiningNodeCount || 0) + 1;
 
         // Increment the CLI version count that this node is using
         aggregatedAppVersion
-          .get(appData.shardeumVersion)
+          .get(appData.liberdusVersion)
           .cliVersions.set(
             appData.operatorCLIVersion,
             (aggregatedAppVersion
-              .get(appData.shardeumVersion)
+              .get(appData.liberdusVersion)
               .cliVersions.get(appData.operatorCLIVersion)) + 1
           );
 
         // Increment the GUI version count that this node is using
         aggregatedAppVersion
-          .get(appData.shardeumVersion)
+          .get(appData.liberdusVersion)
           .guiVersions.set(
             appData.operatorGUIVersion,
             (aggregatedAppVersion
-              .get(appData.shardeumVersion)
+              .get(appData.liberdusVersion)
               .guiVersions.get(appData.operatorGUIVersion)) + 1
           );
 
       } else {
-        aggregatedAppVersion.set(appData.shardeumVersion, {
+        aggregatedAppVersion.set(appData.liberdusVersion, {
           joiningNodeCount: 1,
           cliVersions: new Map<string, number>([
             [appData.operatorCLIVersion, 1],
@@ -1028,32 +1028,32 @@ export class Node {
         continue;
       }
 
-      if (aggregatedAppVersion.has(appData.shardeumVersion)) {
+      if (aggregatedAppVersion.has(appData.liberdusVersion)) {
         // Increment the total node count for this version
-        aggregatedAppVersion.get(appData.shardeumVersion).syncingNodeCount = (aggregatedAppVersion.get(appData.shardeumVersion).syncingNodeCount || 0) + 1;
+        aggregatedAppVersion.get(appData.liberdusVersion).syncingNodeCount = (aggregatedAppVersion.get(appData.liberdusVersion).syncingNodeCount || 0) + 1;
 
         // Increment the CLI version count that this node is using
         aggregatedAppVersion
-          .get(appData.shardeumVersion)
+          .get(appData.liberdusVersion)
           .cliVersions.set(
             appData.operatorCLIVersion,
             (aggregatedAppVersion
-              .get(appData.shardeumVersion)
+              .get(appData.liberdusVersion)
               .cliVersions.get(appData.operatorCLIVersion)) + 1
           );
 
         // Increment the GUI version count that this node is using
         aggregatedAppVersion
-          .get(appData.shardeumVersion)
+          .get(appData.liberdusVersion)
           .guiVersions.set(
             appData.operatorGUIVersion,
             (aggregatedAppVersion
-              .get(appData.shardeumVersion)
+              .get(appData.liberdusVersion)
               .guiVersions.get(appData.operatorGUIVersion)) + 1
           );
 
       } else {
-        aggregatedAppVersion.set(appData.shardeumVersion, {
+        aggregatedAppVersion.set(appData.liberdusVersion, {
           syncingNodeCount: 1,
           cliVersions: new Map<string, number>([
             [appData.operatorCLIVersion, 1],
