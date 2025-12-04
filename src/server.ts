@@ -178,6 +178,11 @@ app.use(methodOverride());
 app.use(helmet());
 app.use(cors());
 
+app.use((req, res, next) => {
+  res.locals.MONITOR_API_URL = process.env.MONITOR_API_URL || "/api";
+  next();
+});
+
 global.User.create({
   username: CONFIG.username,
   password: CONFIG.password
