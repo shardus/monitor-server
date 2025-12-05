@@ -337,6 +337,9 @@ export class Node {
     if (existingStandbyNodePublicKey) {
       delete this.nodes.joining[existingStandbyNodePublicKey];
       this.joiningAppData.delete(existingStandbyNodePublicKey);
+      if (this.nodes.standby[existingStandbyNodePublicKey]) {
+        delete this.nodes.standby[existingStandbyNodePublicKey];
+      }
       Logger.mainLogger.info(
         'Joining node is found in the standby list. Removing existing standby node'
       );
@@ -518,6 +521,9 @@ export class Node {
       if (this.nodes.joining[publicKey])  { 
         delete this.nodes.joining[publicKey];
         delete this.joiningAppData[publicKey];
+      }
+      if (this.nodes.standby[publicKey]) {
+        delete this.nodes.standby[publicKey];
       }
       Logger.historyLogger.info(
         `joined ${nodeId} ${nodeIpInfo.externalIp} ${nodeIpInfo.externalPort} ${this.counter}`
@@ -833,7 +839,7 @@ export class Node {
 
   logSummaryToConsole() {
     console.log('---------Node Summary---------------');
-    console.log(`Standby: ${Object.keys(this.nodes.joining).length}, syncing: ${Object.keys(this.nodes.syncing).length}, active: ${Object.keys(this.nodes.active).length}`);
+    console.log(`Joining: ${Object.keys(this.nodes.joining).length}, Syncing: ${Object.keys(this.nodes.syncing).length}, Active: ${Object.keys(this.nodes.active).length}, Standby: ${Object.keys(this.nodes.standby).length}`);
   }
 
   updateRejectedTps() {
